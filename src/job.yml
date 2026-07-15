@@ -8,8 +8,10 @@ command: >-
 inputs:
   training_data:
     yml inputs: training_data: 
-    type: uri_file 
-    path: azureml:diabetes-data@latest 
+    - name: Run Azure Machine Learning training job
+      run: az ml job create -f src/job.yml --stream --resource-group ${{vars.AZURE_RESOURCE_GROUP}} --workspace-name ${{vars.AZURE_WORKSPACE_NAME}}
+    # type: uri_file 
+    # path: azureml:diabetes-data@latest 
     # type: <uri_file_or_uri_folder>
     # path: <azureml:data-asset-name@latest>
   reg_rate: 0.01

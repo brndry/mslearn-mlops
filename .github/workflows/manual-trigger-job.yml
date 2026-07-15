@@ -17,8 +17,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Install Azure ML extension
-        run: |
-          az extension add -n ml -y
+        run: az extension add -n ml -y
 
       - name: Run Azure Machine Learning training job
         run: |
